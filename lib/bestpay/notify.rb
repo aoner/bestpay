@@ -4,6 +4,12 @@ module Bestpay
       NOTIFY_KEYS = %w{UPTRANSEQ MERCHANTID ORDERID PAYMENT RETNCODE RETNINFO PAYDATE KEY}
       def self.valid?(params,key)
         params = Utils.stringify_hash(params).merge('KEY' => key)
+
+        #这个协议真是傻的没边了。
+        params['ORDERID'] = params.delete('ORDERSEQ')
+        params['PAYMENT'] = params.delete('ORDERAMOUNT')
+        params['PAYDATE'] = params.delete('TRANDATE')
+
         Utils.build_mac(params,NOTIFY_KEYS) == params['SIGN']
       end
 
