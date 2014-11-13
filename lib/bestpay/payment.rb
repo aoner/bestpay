@@ -1,31 +1,17 @@
 module Bestpay
   module Payment 
-    def self.build_payment_url(default_params, params, host, required_params)
-      params = default_params.merge(stringify_hash(params))
+    #PAYMENT_MAC_KEYS = %w{MERCHANTID ORDERSEQ ORDERDATE ORDERAMOUNT CLIENTIP KEY}
+    PAYMENT_MAC_KEYS = %w{MERCHANTID ORDERSEQ ORDERDATE ORDERAMOUNT KEY}
 
-      params['MAC'] = Mac.build_mac(params)
+    def self.build_payment_url(default_params, params, host, required_params)
+      params = default_params.merge(Utils.stringify_hash(params))
+
+      params['MAC'] = Utils.build_mac(params, PAYMENT_MAC_KEYS)
       params.delete('KEY')
 
-      check_required_options(params, required_params)
+      Utils.check_required_options(params, required_params)
 
-      warn "#{host}?#{query_string(params)}"
-      "#{host}?#{query_string(params)}"
-    end
-
-    def self.query_string(options)
-      options.map do |key, value|
-        "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"
-      end.join('&')
-    end
-
-    def self.check_required_options(options, names)
-      names.each do |name|
-        warn("Bestpay Warn: missing required option: #{name}") unless options.has_key?(name)
-      end
-    end
-
-    def self.stringify_hash(hash)
-      hash.inject({}){|h,(k,v)| h[k.to_s] = v; h} 
+      "#{host}?#{Utils.query_string(params)}"
     end
   end
 end

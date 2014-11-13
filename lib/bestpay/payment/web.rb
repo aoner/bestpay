@@ -9,7 +9,6 @@ module Bestpay
       #默认
       def self.payment_url(params)
         default_params = {
-          'SUBMERCHANTID' => "0018888888",
           'CURTYPE' => "RMB",# 币种
           'ENCODETYPE' => "1",# 加密方式
           'BUSICODE' => "0001",# 业务类型

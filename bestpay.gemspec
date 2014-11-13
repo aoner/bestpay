@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Bestpay::VERSION
   spec.authors       = ["H.J.LeoChen"]
   spec.email         = ["hjleochen@hotmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{翼支付网关商户接口实现,非官方}
+  spec.description   = %q{翼支付网关商户接口实现,非官方}
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -17,6 +17,8 @@ module Bestpay
           'ATTACH' => '111',
           'TMNUM' => '111',
           'PRODUCTDESC' => '111',
+          'MERCHANTURL' => 'http://a.com',
+          'BACKMERCHANTURL' => 'http://a.com',
           #'CLIENTIP' => '111',
         }
       }
@@ -38,15 +40,17 @@ module Bestpay
           "MERCHANTID"  => '0018888888',  
           "ORDERSEQ"    => '112',
           "ORDERDATE"   => '20141112131313',
-          "ORDERAMOUNT" => '2.00',
+          "ORDERAMOUNT" => '110',
           "KEY"         => 'G7AXS7874305BV59',
           'ORDERREQTRANSEQ' => '111',
-          'PRODUCTAMOUNT' => '1.00',
-          'ATTACHAMOUNT' => '1.00',
+          'PRODUCTAMOUNT' => '100',
+          'ATTACHAMOUNT' => '10',
           'ATTACH' => '111',
           'TMNUM' => '1',
           'CUSTOMERID' => 'Leo',
           'PRODUCTDESC' => '111',
+          'MERCHANTURL' => 'http://a.com',
+          'BACKMERCHANTURL' => 'http://a.com',
           #'CLIENTIP' => '111',
         }
       }
