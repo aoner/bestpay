@@ -17,7 +17,7 @@ module Bestpay
         end
       end
 
-      Digest::MD5.hexdigest(pairs.join("&"))
+      Digest::MD5.hexdigest(pairs.join("&")).upcase
     end
     
 
