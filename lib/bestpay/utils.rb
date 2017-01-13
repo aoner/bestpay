@@ -17,8 +17,9 @@ module Bestpay
         end
       end
 
-      Digest::MD5.hexdigest(pairs.join("&")).upcase
+      Digest::MD5.hexdigest(pairs.join("&"))
     end
+    
 
     def self.query_string(options)
       options.map do |key, value|
