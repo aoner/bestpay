@@ -37,7 +37,12 @@ module Bestpay
     end
 
     def self.stringify_hash(hash)
-      hash.to_unsafe_h.inject({}){|h,(k,v)| h[k.to_s] = v; h} 
+      # hash.to_unsafe_h.inject({}){|h,(k,v)| h[k.to_s] = v; h} 
+      new_hash = {}
+      hash.each do |key, value|
+        new_hash[(key.to_s rescue key) || key] = value
+      end
+      new_hash
     end
   end
 end
